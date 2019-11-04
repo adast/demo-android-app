@@ -6,8 +6,8 @@
   "scripts": {
     "build": "tsc",
     "postinstall": "npm run build",
-    "start": "node dist/app.js",
-    "dev": "nodemon src/app.ts"
+    "start": "node dist/server.js",
+    "dev": "nodemon src/server.ts"
   },
   "repository": {
     "type": "git",
