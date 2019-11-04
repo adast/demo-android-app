@@ -36,7 +36,6 @@ app.use('/', routes.home);
 
 // Error handler
 app.use((err: any, req: Request, res: Response, next: NextFunction) => {
-    console.error(err);
     res.status(500);
     res.json({'error': err});
 });

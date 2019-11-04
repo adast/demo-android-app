@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import {MongoError} from 'mongodb';
 import * as validator from 'validator';
 
 export type UserDocument = mongoose.Document & {
@@ -27,11 +28,20 @@ const UserSchema = new mongoose.Schema({
         type: String,
         lowercase: true,
         unique: true,
-        required: [true, "Email cannot be blank"],
-        validate: [ validator.isEmail, '{VALUE} is not a valid email' ],
+        validate: [ validator.isEmail, 'Email is not valid' ],
         trim: true,
         index: true
     }
 }, {timestamps: true});
+
+UserSchema.post('save', (error: MongoError, doc: any, next: any) => {
+    if (error.code === 11000) {
+        next("User with this email address already exists.");
+    } else {
+        next(error.message);
+    }
+});
+
+
 
 export default mongoose.model<UserDocument>('User', UserSchema);
