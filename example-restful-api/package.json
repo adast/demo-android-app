@@ -1,0 +1,33 @@
+{
+  "name": "example-restful-api",
+  "version": "1.0.0",
+  "description": "Simple RESTful API for demonstration purposes",
+  "main": "index.js",
+  "scripts": {
+    "start": "node dist/app.js",
+    "dev": "nodemon src/app.ts",
+    "build": "tsc -p ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "demo-android-app"
+  },
+  "keywords": [
+    "RESTful",
+    "API",
+    "express"
+  ],
+  "author": "Adast",
+  "license": "ISC",
+  "dependencies": {
+    "@types/express": "^4.17.2",
+    "@types/node": "^12.12.5",
+    "express": "^4.17.1",
+    "nodemon": "^1.19.4",
+    "ts-node": "^8.4.1",
+    "typescript": "^3.6.4"
+  },
+  "engines": {
+    "node": "12.13.0"
+  }
+}

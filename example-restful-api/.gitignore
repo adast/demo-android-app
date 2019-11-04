@@ -1,0 +1,15 @@
+# Sensitive information
+.env
+
+## Compiled JavaScript files
+**/*.js
+**/*.js.map
+
+# Typescript v1 declaration files
+typings/
+
+# Nodejs modules
+node_modules/
+
+# IDE temporary files
+.idea
