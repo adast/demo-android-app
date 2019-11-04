@@ -4,9 +4,10 @@
   "description": "Simple RESTful API for demonstration purposes",
   "main": "index.js",
   "scripts": {
+    "build": "tsc",
+    "postinstall": "npm run build",
     "start": "node dist/app.js",
-    "dev": "nodemon src/app.ts",
-    "build": "tsc -p ."
+    "dev": "nodemon src/app.ts"
   },
   "repository": {
     "type": "git",

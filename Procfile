@@ -1,0 +1,1 @@
+web: cd example-restful-api && npm start
