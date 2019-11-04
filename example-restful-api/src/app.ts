@@ -1,5 +1,8 @@
-import express from 'express';
 import { MONGODB_URI } from './util/secrets';
+import routes from './routes';
+
+import express from 'express';
+import cors from 'cors';
 import mongoose from 'mongoose';
 import bluebird from 'bluebird';
 
@@ -17,12 +20,11 @@ mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useCreateIndex: true, use
 
 // Express configuration
 app.set("port", process.env.PORT || 3000);
+app.use(cors({origin: true}));
+app.use(express.json());
 
-/**
- * Primary app routes.
- */
-app.get('/', (req, res) => {
-    res.send('Hello World!')
-});
+// App routes
+app.use('/users', routes.users);
+app.use('/', routes.home);
 
 export default app;
